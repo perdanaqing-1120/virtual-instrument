@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #e6eefc;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note {
+    /* dark theme button: deep gradient, subtle border and soft depth */
+    background: linear-gradient(145deg, #15171b 0%, #26292f 100%);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    color: #e6eefc;
+    height: 64px;
+    width: 64px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 8px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7), -4px -4px 12px rgba(255, 255, 255, 0.02);
+    transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+/* .note:hover {
+    transform: translateY(-6px);
+    box-shadow: 12px 12px 28px rgba(0, 0, 0, 0.75), -6px -6px 16px rgba(255, 255, 255, 0.02);
+} */
+
+.note:active,
+.note.active {
+    transform: translateY(5px) scale(1);
+    box-shadow: inset 6px 6px 16px rgba(0, 0, 0, 0.8);
+    filter: brightness(1.04);
+}
+
+.ggg {
+    transform: translateY(5px) scale(1);
+    box-shadow: inset 6px 6px 16px rgba(0, 0, 0, 0.8);
+    filter: brightness(1.04);
+}
+
+.note:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(100, 150, 255, 0.08);
+}
+
+/* render key icon in a pseudo-element above the label so image and text never overlap */
+.note::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48%;
+    height: 30%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
+    display: block;
+    opacity: 1;
+}
+
+/* for icon-button variants, stack icon on top and label below */
+.note[class*="do"],
+.note[class*="re"],
+.note[class*="mi"],
+.note[class*="fa"],
+.note[class*="sol"],
+.note[class*="la"],
+.note[class*="ti"] {
+    flex-direction: column;
+    justify-content: flex-end;
+    /* push label below the icon */
+    padding-top: 14px;
+    /* space to show the icon */
+    color: #e6eefc;
+    /* ensure contrast over dark background */
+}
+
+/* responsive: slightly smaller buttons on narrow screens */
+@media (max-width: 420px) {
+    .note {
+        height: 52px;
+        width: 52px;
+        font-size: 14px;
+        margin: 6px
+    }
+}
+
+/* move background images into the pseudo-element to prevent overlap with text */
+.do::before {
+    background-image: url('/assets/images/keys/do.svg');
+}
+
+.re::before {
+    background-image: url('/assets/images/keys/re.svg');
+}
+
+.mi::before {
+    background-image: url('/assets/images/keys/mi.svg');
+}
+
+.fa::before {
+    background-image: url('/assets/images/keys/fa.svg');
+}
+
+.sol::before {
+    background-image: url('/assets/images/keys/so.svg');
+}
+
+.la::before {
+    background-image: url('/assets/images/keys/la.svg');
+}
+
+.ti::before {
+    background-image: url('/assets/images/keys/ti.svg');
+}
+
+.footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    bottom: 16px;
+}
