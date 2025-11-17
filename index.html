@@ -5,40 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css" />
-    <script src="index.js" defer></script>
     <title>Virtual instrument</title>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="title">virtual instrument: lyre</h1>
+        <h1 class="title">virtual instrument:
+            <select id="alatMusik" class="alatMusik">
+                <option value="Lyre">Lyre</option>
+                <option value="LeapingSpiritPiano">LeapingSpiritPiano</option>
+                <option value="LingeringEuphonia">LingeringEuphonia</option>
+                <option value="Old-Zither">Old-Zither</option>
+                <option value="Ukulele">Ukulele</option>
+                <option value="Vintage-Lyre">Vintage-Lyre</option>
+                <option value="Zither">Zither</option>
+                <option value="DunDun">DunDun</option>
+                <option value="DjemDjemDrum">DjemDjemDrum</option>
+            </select>
+        </h1>
         <div id="note">
             <div class="c5">
-                <button id="doC5" class="note do" onclick="lyre(0)">q</button>
-                <button id="reC5" class="note re" onclick="lyre(1)">w</button>
-                <button id="miC5" class="note mi" onclick="lyre(2)">e</button>
-                <button id="faC5" class="note fa" onclick="lyre(3)">r</button>
-                <button id="solC5" class="note sol" onclick="lyre(4)">t</button>
-                <button id="laC5" class="note la" onclick="lyre(5)">y</button>
-                <button id="tiC5" class="note ti" onclick="lyre(6)">u</button>
+                <button id="doC5" class="note do" onclick="tone(0)">q</button>
+                <button id="reC5" class="note re" onclick="tone(1)">w</button>
+                <button id="miC5" class="note mi" onclick="tone(2)">e</button>
+                <button id="faC5" class="note fa" onclick="tone(3)">r</button>
+                <button id="solC5" class="note sol" onclick="tone(4)">t</button>
+                <button id="laC5" class="note la" onclick="tone(5)">y</button>
+                <button id="tiC5" class="note ti" onclick="tone(6)">u</button>
             </div>
             <div class="c4">
-                <button id="doC4" class="note do" onclick="lyre(7)">a</button>
-                <button id="reC4" class="note re" onclick="lyre(8)">s</button>
-                <button id="miC4" class="note mi" onclick="lyre(9)">d</button>
-                <button id="faC4" class="note fa" onclick="lyre(10)">f</button>
-                <button id="solC4" class="note sol" onclick="lyre(11)">g</button>
-                <button id="laC4" class="note la" onclick="lyre(12)">h</button>
-                <button id="tiC4" class="note ti" onclick="lyre(13)">j</button>
+                <button id="doC4" class="note do" onclick="tone(7)">a</button>
+                <button id="reC4" class="note re" onclick="tone(8)">s</button>
+                <button id="miC4" class="note mi" onclick="tone(9)">d</button>
+                <button id="faC4" class="note fa" onclick="tone(10)">f</button>
+                <button id="solC4" class="note sol" onclick="tone(11)">g</button>
+                <button id="laC4" class="note la" onclick="tone(12)">h</button>
+                <button id="tiC4" class="note ti" onclick="tone(13)">j</button>
             </div>
             <div class="c3">
-                <button id="doC3" class="note do" onclick="lyre(14)">z</button>
-                <button id="reC3" class="note re" onclick="lyre(15)">x</button>
-                <button id="miC3" class="note mi" onclick="lyre(16)">c</button>
-                <button id="faC3" class="note fa" onclick="lyre(17)">v</button>
-                <button id="solC3" class="note sol" onclick="lyre(18)">b</button>
-                <button id="laC3" class="note la" onclick="lyre(19)">n</button>
-                <button id="tiC3" class="note ti" onclick="lyre(20)">m</button>
+                <button id="doC3" class="note do" onclick="tone(14)">z</button>
+                <button id="reC3" class="note re" onclick="tone(15)">x</button>
+                <button id="miC3" class="note mi" onclick="tone(16)">c</button>
+                <button id="faC3" class="note fa" onclick="tone(17)">v</button>
+                <button id="solC3" class="note sol" onclick="tone(18)">b</button>
+                <button id="laC3" class="note la" onclick="tone(19)">n</button>
+                <button id="tiC3" class="note ti" onclick="tone(20)">m</button>
             </div>
         </div>
     </div>
@@ -52,6 +63,9 @@
         <p>Please rotate your device to landscape mode for the best experience</p>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="landscape.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

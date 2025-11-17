@@ -1,6 +1,7 @@
 const button = document.querySelectorAll(".note")
 const footer = document.querySelector(".footer")
 const portraitWarning = document.getElementById("portraitWarning")
+const alatMusik = document.getElementById("alatMusik")
 
 // c5
 const doC5 = document.getElementById("doC5")
@@ -30,35 +31,15 @@ const tiC3 = document.getElementById("tiC3")
 let cooldown = 100;
 let slideDownTimeout;
 
-// Function to check and show portrait warning on mobile
-function checkPortraitOrientation() {
-    if (window.matchMedia("(max-width: 768px) and (orientation: portrait)").matches) {
-        portraitWarning.classList.add("show")
-    } else {
-        portraitWarning.classList.remove("show")
-    }
+function alatMusikValue(){
+    const alatMusikValue = alatMusik.value
+    console.log(alatMusikValue)
+    return alatMusikValue
 }
 
-// Check on page load
-checkPortraitOrientation()
-
-// Check on orientation change
-window.addEventListener('orientationchange', () => {
-    setTimeout(checkPortraitOrientation, 100)
-})
-
-// Function to slide footer down
-function slideFooterDown() {
-    footer.classList.add("slide-down")
-    clearTimeout(slideDownTimeout)
-    slideDownTimeout = setTimeout(() => {
-        footer.classList.remove("slide-down")
-    }, 500)
-}
-
-function lyre(params) {
+function tone(params) {
     console.log(params)
-    const lyreSound = new Audio(`/assets/Lyre/${params}.mp3`)
+    const lyreSound = new Audio(`/assets/${alatMusikValue()}/${params}.mp3`)
     lyreSound.play()
     slideFooterDown()
 }
@@ -71,70 +52,63 @@ window.addEventListener('keydown', (event) => {
 
     // C4
     if (keyValue === 'a') {
-        const sound = new Audio(`/assets/Lyre/7.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/7.mp3`);
         sound.play();
         doC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             doC4.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 's') {
-        const sound = new Audio(`/assets/Lyre/8.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/8.mp3`);
         sound.play();
         reC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             reC4.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'd') {
-        const sound = new Audio(`/assets/Lyre/9.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/9.mp3`);
         sound.play();
         miC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             miC4.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'f') {
-        const sound = new Audio(`/assets/Lyre/10.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/10.mp3`);
         sound.play();
         faC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             faC4.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'g') {
-        const sound = new Audio(`/assets/Lyre/11.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/11.mp3`);
         sound.play();
         solC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             solC4.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'h') {
-        const sound = new Audio(`/assets/Lyre/12.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/12.mp3`);
         sound.play();
         laC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             laC4.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'j') {
-        const sound = new Audio(`/assets/Lyre/13.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/13.mp3`);
         sound.play();
         tiC4.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             tiC4.classList.toggle('ggg')
@@ -144,65 +118,58 @@ window.addEventListener('keydown', (event) => {
 
     // c5
     else if (keyValue === 'q') {
-        const sound = new Audio(`/assets/Lyre/0.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/0.mp3`);
         sound.play();
         doC5.classList.toggle('ggg')
-        slideFooterDown()
 
         setTimeout(() => {
             doC5.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'w') {
-        const sound = new Audio(`/assets/Lyre/1.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/1.mp3`);
         sound.play();
         reC5.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             reC5.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'e') {
-        const sound = new Audio(`/assets/Lyre/2.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/2.mp3`);
         sound.play();
         miC5.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             miC5.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'r') {
-        const sound = new Audio(`/assets/Lyre/3.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/3.mp3`);
         sound.play();
         faC5.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             faC5.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 't') {
-        const sound = new Audio(`/assets/Lyre/4.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/4.mp3`);
         sound.play();
         solC5.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             solC5.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'y') {
-        const sound = new Audio(`/assets/Lyre/5.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/5.mp3`);
         sound.play();
         laC5.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             laC5.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'u') {
-        const sound = new Audio(`/assets/Lyre/6.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/6.mp3`);
         sound.play();
         tiC5.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             tiC5.classList.toggle('ggg')
         }, cooldown)
@@ -210,64 +177,57 @@ window.addEventListener('keydown', (event) => {
     }
 
     else if (keyValue === 'z') {
-        const sound = new Audio(`/assets/Lyre/14.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/14.mp3`);
         sound.play();
         doC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             doC3.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'x') {
-        const sound = new Audio(`/assets/Lyre/15.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/15.mp3`);
         sound.play();
         reC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             reC3.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'c') {
-        const sound = new Audio(`/assets/Lyre/16.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/16.mp3`);
         sound.play();
         miC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             miC3.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'v') {
-        const sound = new Audio(`/assets/Lyre/17.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/17.mp3`);
         sound.play();
         faC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             faC3.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'b') {
-        const sound = new Audio(`/assets/Lyre/18.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/18.mp3`);
         sound.play();
         solC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             solC3.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'n') {
-        const sound = new Audio(`/assets/Lyre/19.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/19.mp3`);
         sound.play();
         laC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             laC3.classList.toggle('ggg')
         }, cooldown)
 
     } else if (keyValue === 'm') {
-        const sound = new Audio(`/assets/Lyre/20.mp3`);
+        const sound = new Audio(`/assets/${alatMusikValue()}/20.mp3`);
         sound.play();
         tiC3.classList.toggle('ggg')
-        slideFooterDown()
         setTimeout(() => {
             tiC3.classList.toggle('ggg')
         }, cooldown)
