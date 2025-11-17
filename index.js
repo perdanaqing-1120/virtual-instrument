@@ -1,4 +1,6 @@
 const button = document.querySelectorAll(".note")
+const footer = document.querySelector(".footer")
+const portraitWarning = document.getElementById("portraitWarning")
 
 // c5
 const doC5 = document.getElementById("doC5")
@@ -26,11 +28,39 @@ const laC3 = document.getElementById("laC3")
 const tiC3 = document.getElementById("tiC3")
 
 let cooldown = 100;
+let slideDownTimeout;
+
+// Function to check and show portrait warning on mobile
+function checkPortraitOrientation() {
+    if (window.matchMedia("(max-width: 768px) and (orientation: portrait)").matches) {
+        portraitWarning.classList.add("show")
+    } else {
+        portraitWarning.classList.remove("show")
+    }
+}
+
+// Check on page load
+checkPortraitOrientation()
+
+// Check on orientation change
+window.addEventListener('orientationchange', () => {
+    setTimeout(checkPortraitOrientation, 100)
+})
+
+// Function to slide footer down
+function slideFooterDown() {
+    footer.classList.add("slide-down")
+    clearTimeout(slideDownTimeout)
+    slideDownTimeout = setTimeout(() => {
+        footer.classList.remove("slide-down")
+    }, 500)
+}
 
 function lyre(params) {
     console.log(params)
-    const lyre = new Audio(`/assets/Lyre/${params}.mp3`)
-    lyre.play()
+    const lyreSound = new Audio(`/assets/Lyre/${params}.mp3`)
+    lyreSound.play()
+    slideFooterDown()
 }
 
 let keyValue = ""
@@ -44,6 +74,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/7.mp3`);
         sound.play();
         doC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             doC4.classList.toggle('ggg')
@@ -53,6 +84,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/8.mp3`);
         sound.play();
         reC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             reC4.classList.toggle('ggg')
@@ -62,6 +94,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/9.mp3`);
         sound.play();
         miC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             miC4.classList.toggle('ggg')
@@ -71,6 +104,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/10.mp3`);
         sound.play();
         faC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             faC4.classList.toggle('ggg')
@@ -80,6 +114,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/11.mp3`);
         sound.play();
         solC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             solC4.classList.toggle('ggg')
@@ -89,6 +124,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/12.mp3`);
         sound.play();
         laC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             laC4.classList.toggle('ggg')
@@ -98,6 +134,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/13.mp3`);
         sound.play();
         tiC4.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             tiC4.classList.toggle('ggg')
@@ -110,6 +147,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/0.mp3`);
         sound.play();
         doC5.classList.toggle('ggg')
+        slideFooterDown()
 
         setTimeout(() => {
             doC5.classList.toggle('ggg')
@@ -119,6 +157,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/1.mp3`);
         sound.play();
         reC5.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             reC5.classList.toggle('ggg')
         }, cooldown)
@@ -127,6 +166,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/2.mp3`);
         sound.play();
         miC5.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             miC5.classList.toggle('ggg')
         }, cooldown)
@@ -135,6 +175,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/3.mp3`);
         sound.play();
         faC5.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             faC5.classList.toggle('ggg')
         }, cooldown)
@@ -143,6 +184,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/4.mp3`);
         sound.play();
         solC5.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             solC5.classList.toggle('ggg')
         }, cooldown)
@@ -151,6 +193,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/5.mp3`);
         sound.play();
         laC5.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             laC5.classList.toggle('ggg')
         }, cooldown)
@@ -159,6 +202,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/6.mp3`);
         sound.play();
         tiC5.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             tiC5.classList.toggle('ggg')
         }, cooldown)
@@ -169,6 +213,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/14.mp3`);
         sound.play();
         doC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             doC3.classList.toggle('ggg')
         }, cooldown)
@@ -177,6 +222,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/15.mp3`);
         sound.play();
         reC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             reC3.classList.toggle('ggg')
         }, cooldown)
@@ -185,6 +231,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/16.mp3`);
         sound.play();
         miC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             miC3.classList.toggle('ggg')
         }, cooldown)
@@ -193,6 +240,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/17.mp3`);
         sound.play();
         faC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             faC3.classList.toggle('ggg')
         }, cooldown)
@@ -201,6 +249,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/18.mp3`);
         sound.play();
         solC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             solC3.classList.toggle('ggg')
         }, cooldown)
@@ -209,6 +258,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/19.mp3`);
         sound.play();
         laC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             laC3.classList.toggle('ggg')
         }, cooldown)
@@ -217,6 +267,7 @@ window.addEventListener('keydown', (event) => {
         const sound = new Audio(`/assets/Lyre/20.mp3`);
         sound.play();
         tiC3.classList.toggle('ggg')
+        slideFooterDown()
         setTimeout(() => {
             tiC3.classList.toggle('ggg')
         }, cooldown)
